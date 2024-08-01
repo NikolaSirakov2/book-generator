@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useBookGenerationSocket } from "../../_components/BookGenerationSocket";
@@ -36,7 +36,6 @@ function Account({ params }: { params: { id: string } }) {
     return decodedJwt;
   };
   const user = getDecodedToken();
-  console.error(user);
 
   const handleClick = (event: React.MouseEvent) => {
     const emailRegex = /\S+@\S+\.\S+/;
@@ -67,6 +66,7 @@ function Account({ params }: { params: { id: string } }) {
             type="text"
             placeholder="enter title of your story"
             value={user.firstName}
+            readOnly
             className="border-2 border-gray-200 p-2 rounded-md mx-4 mb-4 text-gray-400"
           />
           <h2 className="ml-4 font-bold">Last Name</h2>
@@ -74,6 +74,7 @@ function Account({ params }: { params: { id: string } }) {
             type="text"
             placeholder="enter number of pages"
             value={user.lastName}
+            readOnly
             className="border-2 border-gray-200 p-2 rounded-md mx-4 mb-4 text-gray-400"
           />
           <h2 className="ml-4 font-bold">Email</h2>
@@ -81,6 +82,7 @@ function Account({ params }: { params: { id: string } }) {
             type="text"
             placeholder="enter number of pages"
             value={user.email}
+            readOnly
             className="border-2 border-gray-200 p-2 rounded-md mx-4 mb-4 text-gray-400"
           />
           <div className="flex items-center justify-center gap-6">

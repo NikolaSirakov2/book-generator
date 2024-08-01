@@ -90,8 +90,8 @@ function SideBar() {
         }
       >
         <div
-          className={`flex items-center ${
-            decodedToken && isActive(`/dashboard/account/${decodedToken.id}`) ? "text-green-200" : ""
+          className={`mb-4 group flex flex-col items-center cursor-pointer ${
+            isActive(`/dashboard/account/${decodedToken.id}`) ? "text-green-200" : ""
           }`}
         >
           <Settings size={24} />
