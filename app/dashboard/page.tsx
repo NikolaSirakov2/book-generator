@@ -76,44 +76,50 @@ function Dashboard() {
   ));
 
   const suggestedBookElements = suggestedBooks?.map((book: SuggestedBook) => {
-    let textWithoutTags = book.text.replace(/<\/?page>|<\/?content>/g, '');
-    let firstFiveLines = textWithoutTags.split('.').slice(0, 2).join('. ') + '.';
+      let textWithoutTags = book.text.replace(/<\/?page>|<\/?content>/g, '');
+      let sentences = textWithoutTags.split('.').filter(sentence => sentence.trim().length > 0);
+      let firstTwoSentences = sentences.slice(0, 2).join('. ') + '.';
 
-    const handleSaveToLocalStorage = () => {
-      localStorage.setItem('suggestedBook', JSON.stringify(book));
-    };
+      // Ensure the text is not more than 100 characters
+      if (firstTwoSentences.length > 100) {
+          firstTwoSentences = firstTwoSentences.substring(0, 110) + '...';
+      }
 
-    return (
-      <div
-        key={book.id}
-        className="bg-blue-100 items-center justify-between border-1 rounded-xl p-4 mr-10 max-w-[90vw] lg:max-w-[30vw] min-h-[40vh] shadow-xl"
-      >
-        <Image
-          src={book.images[0]}
-          alt={book.title}
-          width={170}
-          height={150}
-          className="rounded-full"
-        />
-        <div className="flex flex-col ml-4">
-          <h1 className="font-bold my-2">{book.title}</h1>
-          <p>{firstFiveLines}</p>
+      const handleSaveToLocalStorage = () => {
+        localStorage.setItem('suggestedBook', JSON.stringify(book));
+      };
+
+      return (
+        <div
+          key={book.id}
+          className="bg-blue-100 items-center justify-between border-1 rounded-xl p-4 mr-10 max-w-[90vw] lg:max-w-[30vw] min-h-[40vh] shadow-xl"
+        >
+          <Image
+            src={book.images[0]}
+            alt={book.title}
+            width={170}
+            height={150}
+            className="rounded-full"
+          />
+          <div className="flex flex-col ml-4">
+            <h1 className="font-bold my-2">{book.title}</h1>
+            <p>{firstTwoSentences}</p>
+          </div>
+          <Link href={`/dashboard/book/${book.id}`} passHref>
+            <Button 
+              className="bg-black text-white border-2 m-2 lg:mr-4 rounded-full py-0 hover:bg-white hover:text-black"
+              onClick={handleSaveToLocalStorage}
+            >
+              Read Now
+            </Button>
+          </Link>
         </div>
-        <Link href={`/dashboard/book/${book.id}`} passHref>
-          <Button 
-            className="bg-black text-white border-2 m-2 lg:mr-4 rounded-full py-0 hover:bg-white hover:text-black"
-            onClick={handleSaveToLocalStorage}
-          >
-            Read Now
-          </Button>
-        </Link>
-      </div>
-    );
-  });
+      );
+    });
 
   return (
-    <div className="w-full flex flex-col lg:grid lg:grid-rows-2 lg:gap-4 lg:h-[97vh] ">
-      <div className="w-full flex flex-col lg:flex-row lg:space-x-4">
+    <div className="flex flex-col lg:gap-4 lg:h-[92vh] lg:max-w-[89vw]">
+      <div className="flex flex-col lg:flex-row lg:space-x-4 lg:max-h-[45vh]">
         <div className="bg-blue-100 shadow-xl w-full lg:w-full rounded-xl mb-6 lg:mb-2 flex flex-col items-center">
           <h1 className="text-3xl font-bold mx-4 mt-4 lg:m-4 text-center">
             Welcome back {userDashboardData?.userInfo?.firstName}!
