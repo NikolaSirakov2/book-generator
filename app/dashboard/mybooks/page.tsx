@@ -56,35 +56,36 @@ function MyBooks() {
   useEffect(() => {
     fetchBooksUser();
     fetchUserDashboardData();
-    const hasCreatingBook = Object.keys(localStorage).some((key) =>
-      key.startsWith("creating_book")
-    );
-    setIsLoadingBook(hasCreatingBook);
 
-    console.error(process.env.NEXT_PUBLIC_API_URL);
-
-    const socket = io(`${process.env.NEXT_PUBLIC_API_URL}`);
-
-    socket.on("book-generation-complete", (data) => {
-      console.error("Book generation complete:", data);
-      setIsLoadingBook(false);
-      const existingTitles = JSON.parse(
-        localStorage.getItem("creating_book") ?? "[]"
+    if (isBrowser) {
+      const hasCreatingBook = Object.keys(localStorage).some((key) =>
+        key.startsWith("creating_book")
       );
-      let removedTitle = "";
-      if (existingTitles.length > 0) {
-        removedTitle = existingTitles.shift();
-        localStorage.setItem("creating_book", JSON.stringify(existingTitles));
-      }
-      fetchBooksUser();
-      toast({
-        title: `Book "${removedTitle}" generation complete!`,
-      });
-    });
+      setIsLoadingBook(hasCreatingBook);
 
-    return () => {
-      socket.disconnect();
-    };
+      const socket = io(`${process.env.NEXT_PUBLIC_API_URL}`);
+
+      socket.on("book-generation-complete", (data) => {
+        console.error("Book generation complete:", data);
+        setIsLoadingBook(false);
+        const existingTitles = JSON.parse(
+          localStorage.getItem("creating_book") ?? "[]"
+        );
+        let removedTitle = "";
+        if (existingTitles.length > 0) {
+          removedTitle = existingTitles.shift();
+          localStorage.setItem("creating_book", JSON.stringify(existingTitles));
+        }
+        fetchBooksUser();
+        toast({
+          title: `Book "${removedTitle}" generation complete!`,
+        });
+      });
+
+      return () => {
+        socket.disconnect();
+      };
+    }
   }, [decodedToken.id]);
 
   const userBookElements = userBooks?.map((book) => {
@@ -146,9 +147,9 @@ function MyBooks() {
     );
   });
 
-  const loadingTitles = JSON.parse(
-    localStorage.getItem("creating_book") ?? "[]"
-  );
+  const loadingTitles = isBrowser
+    ? JSON.parse(localStorage.getItem("creating_book") ?? "[]")
+    : [];
   const loadingBookCards: JSX.Element[] = loadingTitles.map(
     (title: string, index: number) => (
       <div
