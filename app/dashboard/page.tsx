@@ -80,7 +80,6 @@ function Dashboard() {
       let sentences = textWithoutTags.split('.').filter(sentence => sentence.trim().length > 0);
       let firstTwoSentences = sentences.slice(0, 2).join('. ') + '.';
 
-      // Ensure the text is not more than 100 characters
       if (firstTwoSentences.length > 100) {
           firstTwoSentences = firstTwoSentences.substring(0, 110) + '...';
       }

@@ -89,16 +89,15 @@ function BookComponent({}: { params: { id: string } }) {
 
   const handleNextPage = async () => {
     if (book) {
+      if (currentPage < book.pages - 1) {
+        setCurrentPage(currentPage + 1);
+      }
       if (currentPage === book.pages - 2) {
-        console.error("Marking book as read");
         try {
           await readBook(decodedToken.id, book.id.toString(), token);
         } catch (error) {
           console.error("Failed to mark book as read: ", error);
         }
-      } else if (currentPage < book.pages - 1) {
-        console.error("Incrementing page");
-        setCurrentPage(currentPage + 1);
       }
     }
   };
