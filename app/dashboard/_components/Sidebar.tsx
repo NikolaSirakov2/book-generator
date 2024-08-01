@@ -12,6 +12,7 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import useDecodedToken from "./useDecodedToken";
+import AccountLink from "./AccountLink";
 
 function SideBar() {
   const path = usePathname();
@@ -82,10 +83,9 @@ function SideBar() {
         </div>
       </div>
       <div className="flex-grow"></div>
-     
-          <Settings size={24} />
-          <span className="opacity-0 group-hover:opacity-100">Account</span>
-        
+      {decodedToken && decodedToken.id && (
+        <AccountLink userId={decodedToken.id} />
+      )}
     </div>
   );
 }
