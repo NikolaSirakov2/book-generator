@@ -61,7 +61,9 @@ function MyBooks() {
     );
     setIsLoadingBook(hasCreatingBook);
 
-    const socket = io("http://localhost:8080");
+    console.error(process.env.NEXT_PUBLIC_API_URL);
+
+    const socket = io(`${process.env.NEXT_PUBLIC_API_URL}`);
 
     socket.on("book-generation-complete", (data) => {
       console.error("Book generation complete:", data);
@@ -86,7 +88,7 @@ function MyBooks() {
   }, [decodedToken.id]);
 
   const userBookElements = userBooks?.map((book) => {
-    const firstContentMatch = book?.text?.match(/<content>(.*?)<\/content>/s);
+    const firstContentMatch = book?.text?.match(/<content>([\s\S]*?)<\/content>/);
     let firstContent = firstContentMatch ? firstContentMatch[1] : "";
     firstContent = firstContent.replace(/\n/g, " ");
     firstContent = firstContent.replace(/<br\s*\/?>/gi, " ");

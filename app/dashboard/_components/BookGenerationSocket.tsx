@@ -7,7 +7,8 @@ export const useBookGenerationSocket = () => {
     const { toast } = useToast();
 
     useEffect(() => {
-        const socket = io("http://localhost:8080");
+        console.error(process.env.NEXT_PUBLIC_API_URL);
+        const socket = io(`${process.env.NEXT_PUBLIC_API_URL}`);
 
         socket.on("book-generation-complete", (data) => {
             console.error("Book generation complete:", data);

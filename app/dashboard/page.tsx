@@ -3,10 +3,9 @@ import { Button } from "@/components/ui/button";
 import Marquee from "react-fast-marquee";
 import { BookHeart, BookOpenCheck, LibraryBigIcon } from "lucide-react";
 import Image from "next/image";
-import React, { useState, useEffect, use } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { fetchBooks, fetchUserDashboard } from "../api/api";
-import { books } from "../data/books";
+import { fetchUserDashboard } from "../api/api";
 import useDecodedToken from "./_components/useDecodedToken";
 import { useBookGenerationSocket } from "./_components/BookGenerationSocket";
 
@@ -29,7 +28,6 @@ interface SuggestedBook {
 }
 
 function Dashboard() {
-  const [openDialog, setOpenDialog] = useState(false);
   const [userBooks, setUserBooks] = useState<Book[]>([]);
   const [userDashboardData, setUserDashboardData] = useState<any>(null);
   const [suggestedBooks, setSuggestedBooks] = useState<any>([]);
@@ -39,6 +37,7 @@ function Dashboard() {
   const fetchUserDashboardData = async () => {
     try {
       const userDashboardData = await fetchUserDashboard(token);
+      console.error("userDashboardData: ", userDashboardData);
       const userBooks = userDashboardData.books;
       const suggestedBooks = userDashboardData.suggestedBooks;
       setSuggestedBooks(suggestedBooks);

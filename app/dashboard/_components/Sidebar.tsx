@@ -82,22 +82,10 @@ function SideBar() {
         </div>
       </div>
       <div className="flex-grow"></div>
-      <Link
-        href={
-          decodedToken && decodedToken.id !== null
-            ? `/dashboard/account/${decodedToken.id}`
-            : "/"
-        }
-      >
-        <div
-          className={`mb-4 group flex flex-col items-center cursor-pointer ${
-            isActive(`/dashboard/account/${decodedToken.id}`) ? "text-green-200" : ""
-          }`}
-        >
+     
           <Settings size={24} />
           <span className="opacity-0 group-hover:opacity-100">Account</span>
-        </div>
-      </Link>
+        
     </div>
   );
 }

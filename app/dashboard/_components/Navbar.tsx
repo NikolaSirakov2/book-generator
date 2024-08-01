@@ -87,18 +87,7 @@ function NavBar() {
                 </span>
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-            <Link href={decodedToken ? `/dashboard/account/${decodedToken.id}` : '#'}>
-                <span
-                  className={`flex items-center ${
-                    decodedToken && isActive(`/dashboard/account/${decodedToken.id}`) ? "text-black" : ""
-                  }`}
-                >
-                  <Settings className="mr-2 h-8 w-8" />
-                  <span className="text-2xl">Account</span>
-                </span>
-              </Link>
-            </DropdownMenuItem>
+    
             <DropdownMenuItem asChild>
               <Link href="/login">
                 <span

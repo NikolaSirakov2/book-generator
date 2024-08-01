@@ -60,10 +60,10 @@ function BookComponent({}: { params: { id: string } }) {
   }, []);
 
   const getContentForPage = (text: string, pageNumber: number): string => {
-    const matches = text.match(/<page>(.*?)<\/page>/gs);
+    const matches = text.match(/<page>([\s\S]*?)<\/page>/g);
     if (!matches || pageNumber >= matches.length) return "";
     const contentMatch = matches[pageNumber].match(
-      /<content>(.*?)<\/content>/s
+      /<content>([\s\S]*?)<\/content>/
     );
     return contentMatch ? contentMatch[1] : "";
   };
