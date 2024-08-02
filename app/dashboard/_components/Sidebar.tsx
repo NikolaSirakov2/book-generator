@@ -27,11 +27,11 @@ function SideBar() {
     <div className="min-h-[95vh] bg-gradient-to-br from-blue-700 via-blue-500 to-blue-200 shadow-xl rounded-xl flex flex-col justify-start items-center">
       <div className="flex flex-col w-full">
         <Image
-          src="/InkastleLogo.png"
+          src="/wizard-logo.jpg"
           alt="logo"
-          width={100}
+          width={70}
           height={100}
-          className="m-4 mb-10 self-center"
+          className="m-4 mb-10 self-center rounded-xl"
         />
         <div className="flex flex-col items-center gap-6">
           <Link href="/dashboard">
