@@ -33,27 +33,30 @@ export const createUser = async (
   return data;
 }
 
-export const loginUser = async (email: string, password: string) => {
-  const response = await fetch(
-    `${API_URL}/auth/login`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
-    }
-  );
+// api.ts
+// api.ts
+export async function loginUser(email: string, password: string): Promise<string> {
+  const response = await fetch('https://test-website-api.inkastle.studio/auth/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email, password }),
+  });
 
   if (!response.ok) {
-    throw new Error(response.statusText);
+    const errorData = await response.json();
+    if (response.status === 401) {
+      throw new Error("Wrong password!");
+    } else if (response.status === 404) {
+      throw new Error("User with this email doesn't exist!");
+    } else {
+      throw new Error(errorData.message || "An unexpected error occurred");
+    }
   }
 
   const data = await response.json();
-  return data.access_token;
+  return data.token;
 }
 
 export const fetchUsers = async (token: string) => {

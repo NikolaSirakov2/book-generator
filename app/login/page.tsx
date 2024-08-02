@@ -11,13 +11,14 @@ function Login() {
   const [error, setError] = useState({
     email: false,
     password: false,
+    message: "",
   });
 
   const router = useRouter();
 
   const handleClick = async (event: React.MouseEvent) => {
     const emailRegex = /\S+@\S+\.\S+/;
-    let errors = { email: false, password: false};
+    let errors = { email: false, password: false, message: "" };
     if (!emailRegex.test(email)) {
       errors.email = true;
     }
@@ -41,8 +42,9 @@ function Login() {
       } catch (error) {
         if (error instanceof Error) {
           console.error("Error:", error.message);
+          errors.message = error.message;
         }
-        }
+      }
     }
 
     setError(errors);
@@ -51,7 +53,7 @@ function Login() {
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-[100vh] lg:grid-cols-12">
-      <div className="w-3/4 m-10 md:hidden mt-20 ml-12">
+        <div className="w-3/4 m-10 md:hidden mt-20 ml-12">
           <Image
             src="/ornament1.jpg"
             alt="running"
@@ -125,19 +127,24 @@ function Login() {
                   .
                 </p>
               </div>
+              {error.message && (
+                <div className="col-span-6">
+                  <p className="text-red-500">{error.message}</p>
+                </div>
+              )}
             </form>
           </div>
         </main>
         <section className="relative h-48 items-end lg:col-span-5 lg:h-full xl:col-span-6 hidden lg:flex">
-        <div className="w-full mb-6 mr-6">
-          <Image
-            src="/snowwhite.jpg"
-            alt="running"
-            width={950}
-            height={500}
-            className="lg:rounded-full"
-          />
-        </div>
+          <div className="w-full mb-6 mr-6">
+            <Image
+              src="/snowwhite.jpg"
+              alt="running"
+              width={950}
+              height={500}
+              className="lg:rounded-full"
+            />
+          </div>
         </section>
       </div>
     </section>
