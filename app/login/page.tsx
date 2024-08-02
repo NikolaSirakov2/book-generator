@@ -145,12 +145,12 @@ function Login() {
             </form>
           </div>
         </main>
-        <section className="relative h-48 items-end lg:col-span-5 lg:h-full xl:col-span-6 hidden lg:flex">
+        <section className="relative h-48 items-end lg:col-span-5 lg:h-full xl:col-span-6 hidden lg:flex lg:items-center">
           <div className="w-full mb-6 mr-6">
             <Image
               src="/snowwhite.jpg"
               alt="running"
-              width={950}
+              width={990}
               height={500}
               className="lg:rounded-full"
             />

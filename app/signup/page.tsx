@@ -110,12 +110,12 @@ function SignUp() {
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-[100vh] lg:grid-cols-12">
-        <section className="relative h-48 items-end lg:col-span-5 lg:h-full xl:col-span-6 hidden lg:flex">
-          <div className="w-full mb-6 ml-6">
+        <section className="relative h-48 items-end lg:col-span-5 lg:h-full xl:col-span-6 hidden lg:flex lg:items-center">
+          <div className="w-full mb-6 ml-6 lg:flex lg:justify-center">
             <Image
               src="/three-pigs.jpg"
               alt="running"
-              width={900}
+              width={990}
               height={500}
               className="lg:rounded-full"
             />
