@@ -50,6 +50,16 @@ function Login() {
     setError(errors);
   };
 
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+    setError((prevError) => ({ ...prevError, email: false, message: "" }));
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+    setError((prevError) => ({ ...prevError, password: false, message: "" }));
+  };
+
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-[100vh] lg:grid-cols-12">
@@ -79,7 +89,7 @@ function Login() {
                   type="email"
                   className="mt-1 w-full rounded-md border-2 border-gray-300 bg-white text-sm text-gray-700 shadow-sm p-2"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={handleEmailChange}
                 />
                 {error.email && (
                   <p className="text-red-500">Please enter a valid email</p>
@@ -99,7 +109,7 @@ function Login() {
                   name="password"
                   className="mt-1 w-full rounded-md border-2 border-gray-300 bg-white text-sm text-gray-700 shadow-sm p-2"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={handlePasswordChange}
                 />
                 {error.password && (
                   <p className="text-red-500">Please enter a password</p>
