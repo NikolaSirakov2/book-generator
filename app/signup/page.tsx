@@ -82,6 +82,31 @@ function SignUp() {
     setError(errors);
   };
 
+  const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFirstName(e.target.value);
+    setError((prevError) => ({ ...prevError, firstName: false }));
+  };
+
+  const handleLastNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLastName(e.target.value);
+    setError((prevError) => ({ ...prevError, lastName: false }));
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+    setError((prevError) => ({ ...prevError, email: false }));
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+    setError((prevError) => ({ ...prevError, password: false }));
+  };
+
+  const handleRepeatPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRepeatPassword(e.target.value);
+    setError((prevError) => ({ ...prevError, repeatPassword: false }));
+  };
+
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-[100vh] lg:grid-cols-12">
@@ -102,7 +127,7 @@ function SignUp() {
             <form action="#" className="mt-8 grid grid-cols-6 gap-6">
               <div className="col-span-6 sm:col-span-3">
                 <label
-                  htmlFor="Password"
+                  htmlFor="FirstName"
                   className="block text-sm font-medium text-gray-700"
                 >
                   First Name
@@ -113,7 +138,7 @@ function SignUp() {
                   name="first_name"
                   className="mt-1 w-full rounded-md border-2 border-gray-300 bg-white text-sm text-gray-700 shadow-sm p-2"
                   value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
+                  onChange={handleFirstNameChange}
                 />
                 {error.firstName && (
                   <p className="text-red-500">Please enter your first name</p>
@@ -121,7 +146,7 @@ function SignUp() {
               </div>
               <div className="col-span-6 sm:col-span-3">
                 <label
-                  htmlFor="PasswordConfirmation"
+                  htmlFor="LastName"
                   className="block text-sm font-medium text-gray-700"
                 >
                   Last Name
@@ -132,7 +157,7 @@ function SignUp() {
                   name="last_name"
                   className="mt-1 w-full rounded-md border-2 border-gray-300 bg-white text-sm text-gray-700 shadow-sm p-2"
                   value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
+                  onChange={handleLastNameChange}
                 />
                 {error.lastName && (
                   <p className="text-red-500">Please enter your last name</p>
@@ -143,15 +168,15 @@ function SignUp() {
                   htmlFor="Email"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  {" "}
-                  Email{" "}
+                  Email
                 </label>
 
                 <input
                   type="email"
+                  id="Email"
                   className="mt-1 w-full rounded-md border-2 border-gray-300 bg-white text-sm text-gray-700 shadow-sm p-2"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={handleEmailChange}
                 />
                 {error.email && (
                   <p className="text-red-500">Please enter a valid email</p>
@@ -171,7 +196,7 @@ function SignUp() {
                   name="password"
                   className="mt-1 w-full rounded-md border-2 border-gray-300 bg-white text-sm text-gray-700 shadow-sm p-2"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={handlePasswordChange}
                 />
                 {error.password && (
                   <p className="text-red-500">Please enter a password</p>
@@ -190,7 +215,7 @@ function SignUp() {
                   name="password_confirmation"
                   className="mt-1 w-full rounded-md border-2 border-gray-300 bg-white text-sm text-gray-700 shadow-sm p-2"
                   value={repeatPassword}
-                  onChange={(e) => setRepeatPassword(e.target.value)}
+                  onChange={handleRepeatPasswordChange}
                 />
                 {error.repeatPassword && (
                   <p className="text-red-500">Please re-enter your password</p>
@@ -251,14 +276,14 @@ function SignUp() {
             </form>
 
             <div className="w-3/4 m-10 md:hidden">
-          <Image
-            src="/ornament2.jpg"
-            alt="running"
-            width={16}
-            height={9}
-            className="lg:rounded-full"
-          />
-        </div>
+              <Image
+                src="/ornament2.jpg"
+                alt="running"
+                width={16}
+                height={9}
+                className="lg:rounded-full"
+              />
+            </div>
           </div>
         </main>
       </div>

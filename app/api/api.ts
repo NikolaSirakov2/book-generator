@@ -33,8 +33,6 @@ export const createUser = async (
   return data;
 }
 
-// api.ts
-// api.ts
 export async function loginUser(email: string, password: string): Promise<string> {
   const response = await fetch('https://test-website-api.inkastle.studio/auth/login', {
     method: 'POST',
