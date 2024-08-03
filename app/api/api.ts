@@ -54,7 +54,7 @@ export async function loginUser(email: string, password: string): Promise<string
   }
 
   const data = await response.json();
-  return data.token;
+  return data.access_token;
 }
 
 export const fetchUsers = async (token: string) => {
@@ -79,6 +79,29 @@ export const fetchUser = async (decodedToken: DecodedToken, token: string) => {
       headers: {
         Authorization: `Bearer ${token}`,
       },
+    }
+  );
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  const data = await response.json();
+  return data;
+};
+
+export const changeUser = async (
+  decodedToken: DecodedToken, 
+  token: string, 
+  userInfo: { firstName: string, lastName: string, email: string, password: string, passwordConfirmation: string }
+) => {
+  const response = await fetch(
+    `${API_URL}/users/${decodedToken.id}`,
+    {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userInfo)
     }
   );
   if (!response.ok) {

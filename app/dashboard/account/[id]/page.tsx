@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useBookGenerationSocket } from "../../_components/BookGenerationSocket";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { changeUser } from "@/app/api/api";
 
 function Account({ params }: { params: { id: string } }) {
   const [email, setEmail] = useState("");
