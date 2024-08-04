@@ -88,11 +88,15 @@ export const fetchUser = async (decodedToken: DecodedToken, token: string) => {
   return data;
 };
 
-export const changeUser = async (
+export const changeUserInfo = async (
   decodedToken: DecodedToken, 
   token: string, 
   userInfo: { firstName: string, lastName: string, email: string, password: string, passwordConfirmation: string }
 ) => {
+  const requestBody = JSON.stringify(userInfo);
+  
+  console.error("Request body:", requestBody);
+
   const response = await fetch(
     `${API_URL}/users/${decodedToken.id}`,
     {
@@ -101,7 +105,7 @@ export const changeUser = async (
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(userInfo)
+      body: requestBody
     }
   );
   if (!response.ok) {

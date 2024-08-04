@@ -4,8 +4,9 @@ import { useRouter } from "next/navigation";
 import { useBookGenerationSocket } from "../../_components/BookGenerationSocket";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { changeUser } from '../../../api/api';
+import { changeUserInfo } from '../../../api/api';
 import { useToast } from "@/components/ui/use-toast";
+import useDecodedToken from "../../_components/useDecodedToken";
 
 function Account({ }: { params: { id: string } }) {
   const [email, setEmail] = useState("");
@@ -26,29 +27,7 @@ function Account({ }: { params: { id: string } }) {
   const { toast } = useToast();
   useBookGenerationSocket();
 
-  const isBrowser = typeof window !== "undefined";
-  const token = isBrowser ? localStorage.getItem("token") ?? "" : "";
-  const getDecodedToken = () => {
-    let decodedJwt = null;
-
-    if (token) {
-      const [header, payload, sign] = token.split(".");
-
-      const base64UrlPayload = payload;
-      const base64Payload = base64UrlPayload
-        .replace(/-/g, "+")
-        .replace(/_/g, "/");
-      const jsonPayload = atob(base64Payload);
-
-      decodedJwt = JSON.parse(jsonPayload);
-    } else {
-      console.error("No JWT found in local storage");
-    }
-
-    return decodedJwt;
-  };
-  const user = getDecodedToken();
-  console.error(user);
+  const { token, decodedJwt: user } = useDecodedToken();
 
   useEffect(() => {
     if (user) {
@@ -61,7 +40,7 @@ function Account({ }: { params: { id: string } }) {
         lastName: user.lastName || "",
       });
     }
-  }, []); // Empty dependency array to run only once on mount
+  }, []);
 
   const hasChanges = () => {
     return (
@@ -90,7 +69,7 @@ function Account({ }: { params: { id: string } }) {
         password,
         passwordConfirmation,
       };
-      const updatedUser = await changeUser(user, token, userInfo);
+      const updatedUser = await changeUserInfo(user, token, userInfo);
       console.error("User updated successfully:", updatedUser, userInfo);
       toast({
         title: `Your changes have been saved!`, 

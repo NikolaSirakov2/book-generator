@@ -37,7 +37,6 @@ function Dashboard() {
   const fetchUserDashboardData = async () => {
     try {
       const userDashboardData = await fetchUserDashboard(token);
-      console.error("userDashboardData: ", userDashboardData);
       const userBooks = userDashboardData.books;
       const suggestedBooks = userDashboardData.suggestedBooks;
       setSuggestedBooks(suggestedBooks);

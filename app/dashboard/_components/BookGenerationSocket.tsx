@@ -10,7 +10,6 @@ export const useBookGenerationSocket = () => {
         const socket = io(`${process.env.NEXT_PUBLIC_API_URL}`);
 
         socket.on("book-generation-complete", (data) => {
-            console.error("Book generation complete:", data);
             const existingTitles = JSON.parse(localStorage.getItem("creating_book") ?? "[]");
             let removedTitle = ""; 
             if (existingTitles.length > 0) {
