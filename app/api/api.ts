@@ -198,7 +198,6 @@ export const createBook = async (
 };
 
 export const likeBook = async (bookId: string, token: string) => {
-  console.error(bookId);
   const response = await fetch(
     `${API_URL}/users/like`,
     {
