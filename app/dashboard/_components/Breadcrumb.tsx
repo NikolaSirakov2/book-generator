@@ -30,10 +30,6 @@ function BreadcrumbComponent() {
   return (
     <Breadcrumb className="lg:block ml-6 lg:ml-0">
       <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
         {pathNames.map((link: string, index: number) => {
           const href: string = `/${pathNames.slice(0, index + 1).join("/")}`;
           const linkName: string =
@@ -43,7 +39,7 @@ function BreadcrumbComponent() {
             <Fragment key={index}>
               <BreadcrumbItem>
                 {!isLast ? (
-                  <BreadcrumbLink href="/dashboard">{linkName}</BreadcrumbLink>
+                  <BreadcrumbLink href={href}>{linkName}</BreadcrumbLink>
                 ) : (
                   <BreadcrumbPage className="font-semibold">{linkName}</BreadcrumbPage>
                 )}
