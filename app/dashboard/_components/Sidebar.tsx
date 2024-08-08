@@ -24,7 +24,7 @@ function SideBar() {
   const { token, decodedJwt: decodedToken } = useDecodedToken();
 
   return (
-    <div className="min-h-[95vh] bg-gradient-to-br from-blue-700 via-blue-500 to-blue-200 shadow-xl rounded-xl flex flex-col justify-start items-center">
+    <div className="min-h-[95vh] bg-gray-400 shadow-xl rounded-xl flex flex-col justify-start items-center">
       <div className="flex flex-col w-full">
         <Image
           src="/wizard-logo.jpg"

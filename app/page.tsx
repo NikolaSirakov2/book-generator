@@ -4,8 +4,8 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col md:flex-row bg-cover bg-center">
-      <div className="lg:block rounded-xl lg:m-6">
-        <div className="w-full lg:w-[50vw]">
+      <div className="lg:flex rounded-xl lg:m-6 items-center">
+        <div className="w-full lg:w-[50vw] lg:flex justify-center">
           <Image
             src="/red-hood1.jpg"
             alt="running"
