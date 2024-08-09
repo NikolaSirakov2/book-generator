@@ -108,7 +108,7 @@ function MyBooks() {
     return (
       <div
         key={book.id}
-        className="border bg-gray-200 rounded-xl shadow-lg mb-4 hover:bg-blue-100 lg:w-[20vw] lg:flex lg:flex-col lg:min-h-[40vh]"
+        className="border bg-cream-300 rounded-xl shadow-lg mb-4 hover:bg-blue-100 lg:w-[20vw] lg:flex lg:flex-col lg:min-h-[40vh]"
       >
         <div className="flex flex-row justify-between m-4">
           <div className="flex flex-row">

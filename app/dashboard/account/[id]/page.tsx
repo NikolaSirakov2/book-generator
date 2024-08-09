@@ -86,7 +86,7 @@ function Account({ }: { params: { id: string } }) {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="flex flex-col mt-5 lg:mt-20 w-full h-[80vh] lg:w-[50vw] border rounded-xl shadow-xl bg-gradient-to-br from-blue-200 via-blue-300 to-blue-200">
+      <div className="flex flex-col mt-5 lg:mt-20 w-full h-[80vh] lg:w-[50vw] border rounded-xl shadow-xl bg-cream-300">
         <h1 className="text-4xl font-bold text-center my-8">User details</h1>
         <h2 className="ml-4 font-bold">First Name</h2>
         <input

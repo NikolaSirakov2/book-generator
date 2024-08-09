@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+    ],
   prefix: "",
   theme: {
     container: {
@@ -51,6 +51,11 @@ const config = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        cream: {
+          300: '#f5f5dc', // Define your cream-300 color here
+          400: '#ede8c9', // Define your cream-400 color here
+          500: '#e0d7af', // Define your cream-500 color here
         },
       },
       borderRadius: {
