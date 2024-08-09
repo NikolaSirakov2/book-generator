@@ -24,7 +24,7 @@ function SideBar() {
   const { token, decodedJwt: decodedToken } = useDecodedToken();
 
   return (
-    <div className="min-h-[95vh] bg-gray-400 shadow-xl rounded-xl flex flex-col justify-start items-center">
+    <div className="min-h-[95vh] bg-gray-300 shadow-xl rounded-xl flex flex-col justify-start items-center">
       <div className="flex flex-col w-full">
         <Image
           src="/wizard-logo.jpg"
@@ -37,7 +37,7 @@ function SideBar() {
           <Link href="/dashboard">
             <div
               className={`group flex flex-col items-center cursor-pointer ${
-                isActive("/dashboard") ? "text-green-200" : ""
+                isActive("/dashboard") ? "text-blue-500" : ""
               }`}
             >
               <HomeIcon size={24} />
@@ -47,7 +47,7 @@ function SideBar() {
           <Link href="/dashboard/mybooks">
             <div
               className={`group flex flex-col items-center cursor-pointer ${
-                isActive("/dashboard/mybooks") ? "text-green-200" : ""
+                isActive("/dashboard/mybooks") ? "text-blue-500" : ""
               }`}
             >
               <LibraryBig size={24} />
@@ -59,7 +59,7 @@ function SideBar() {
           <Link href="/dashboard/createbook">
             <div
               className={`group flex flex-col items-center cursor-pointer ${
-                isActive("/dashboard/createbook") ? "text-green-200" : ""
+                isActive("/dashboard/createbook") ? "text-blue-500" : ""
               }`}
             >
               <BookPlus size={24} />
@@ -71,7 +71,7 @@ function SideBar() {
           <Link href="/dashboard/subscriptions">
             <div
               className={`group flex flex-col items-center cursor-pointer ${
-                isActive("/dashboard/subscriptions") ? "text-green-200" : ""
+                isActive("/dashboard/subscriptions") ? "text-blue-500" : ""
               }`}
             >
               <CircleDollarSign size={24} />

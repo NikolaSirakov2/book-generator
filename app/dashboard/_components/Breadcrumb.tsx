@@ -33,7 +33,9 @@ function BreadcrumbComponent() {
         {pathNames.map((link: string, index: number) => {
           const href: string = `/${pathNames.slice(0, index + 1).join("/")}`;
           const linkName: string =
-            link[0].toUpperCase() + link.slice(1, link.length);
+            link === "dashboard"
+              ? "Home"
+              : link[0].toUpperCase() + link.slice(1, link.length);
           const isLast: boolean = pathNames.length === index + 1;
           return (
             <Fragment key={index}>

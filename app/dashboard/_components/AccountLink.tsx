@@ -18,7 +18,7 @@ const AccountLink: React.FC<AccountLinkProps> = ({ userId }) => {
         <Link href={`/dashboard/account/${userId}`}>
             <div
                 className={`mb-4 group flex flex-col items-center cursor-pointer ${
-                    isActive(`/dashboard/account/${userId}`) ? "text-green-200" : ""
+                    isActive(`/dashboard/account/${userId}`) ? "text-blue-400" : ""
                 }`}
             >
                 <Settings size={24} />
