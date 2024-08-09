@@ -124,86 +124,86 @@ function Dashboard() {
           <h1 className="text-3xl font-bold mx-4 mt-4 lg:m-4 text-center">
             Welcome back {userDashboardData?.userInfo?.firstName}!
           </h1>
-                                             <div className="grid grid-rows-2 lg:grid-rows-1 md:grid-cols-3 items-center">
-                                  <div className="row-span-1 ml-20 lg:ml-6 flex justify-center lg:justify-start lg:mb-20">
-                                    <div className="relative" style={{ height: '200px' }}> {/* Fixed height for the parent container */}
-                                      <Image
-                                        src="/two-books.jpg"
-                                        alt="little_mermaid"
-                                        width={200}
-                                        height={150}
-                                        className="lg:rounded-xl md:pt-16 lg:pt-0" // Changed from mt-20 to pt-20
-                                      />
-                                    </div>
-                                  </div>
-                                  <div className="flex row-span-2 col-span-2">
-                                    <div className="flex flex-col m-6 items-center w-full">
-                                      <div className="flex items-center gap-4 border bg-white rounded-xl mb-2 w-full justify-between">
-                                        <div className="flex items-center">
-                                          <div
-                                            className="text-white rounded-xl ml-2"
-                                            style={{
-                                              background:
-                                                "linear-gradient(to bottom right, #b3d1ff, #3399ff, #0066ff)",
-                                              padding: "10px",
-                                            }}
-                                          >
-                                            <LibraryBigIcon size={26} />
-                                          </div>
-                                          <p className="font-bold ml-4">My books</p>
-                                        </div>
-                                        <div className="bg-gray-300 m-2 p-2 rounded-full font-bold">
-                                          <p className="px-2">{userBooks.length ?? 0}</p>
-                                        </div>
-                                      </div>
-                                      <div className="flex items-center gap-4 border bg-white rounded-xl mb-2 w-full justify-between">
-                                        <div className="flex items-center">
-                                          <div
-                                            className="text-white rounded-xl ml-2"
-                                            style={{
-                                              background:
-                                                "linear-gradient(to bottom right, #b3d1ff, #3399ff, #0066ff)",
-                                              padding: "10px",
-                                            }}
-                                          >
-                                            <BookOpenCheck size={25} />
-                                          </div>
-                                          <p className="font-bold ml-4">Books read</p>
-                                        </div>
-                                        <div className="bg-gray-300 m-2 p-2 rounded-full font-bold">
-                                          <p className="px-2">
-                                            {userDashboardData?.userInfo?.readBooks?.length ?? 0}
-                                          </p>
-                                        </div>
-                                      </div>
-                                      <div className="flex items-center gap-4 border bg-white rounded-xl mb-2 w-full justify-between">
-                                        <div className="flex items-center">
-                                          <div
-                                            className="text-white rounded-xl ml-2"
-                                            style={{
-                                              background:
-                                                "linear-gradient(to bottom right, #b3d1ff, #3399ff, #0066ff)",
-                                              padding: "10px",
-                                            }}
-                                          >
-                                            <BookHeart size={25} />
-                                          </div>
-                                          <p className="font-bold ml-4">Books liked</p>
-                                        </div>
-                                        <div className="bg-gray-300 m-2 p-2 rounded-full font-bold">
-                                          <p className="px-2">
-                                            {userDashboardData?.userInfo?.likedBooks?.length ?? 0}
-                                          </p>
-                                        </div>
-                                      </div>
-                                      <Link href="/dashboard/createbook" passHref>
-                                        <Button className=" bg-black text-white border-1 m-2 mt-10 lg:mr-4 rounded-full py-0 hover:bg-white hover:text-black">
-                                          + Create New Book
-                                        </Button>
-                                      </Link>
-                                    </div>
-                                  </div>
-                                </div>
+          <div className="grid grid-rows-2 lg:grid-rows-1 md:grid-cols-3 items-center">
+            <div className="row-span-1 ml-20 lg:ml-6 flex justify-center lg:justify-start lg:mb-20">
+              <div className="relative" style={{ height: "200px" }}>
+                <Image
+                  src="/two-books.jpg"
+                  alt="little_mermaid"
+                  width={200}
+                  height={150}
+                  className="lg:rounded-xl md:pt-16 lg:pt-0"
+                />
+              </div>
+            </div>
+            <div className="flex row-span-2 col-span-2">
+              <div className="flex flex-col m-6 items-center w-full">
+                <div className="flex items-center gap-4 border bg-white rounded-xl mb-2 w-full justify-between">
+                  <div className="flex items-center">
+                    <div
+                      className="text-white rounded-xl ml-2"
+                      style={{
+                        background:
+                          "linear-gradient(to bottom right, #b3d1ff, #3399ff, #0066ff)",
+                        padding: "10px",
+                      }}
+                    >
+                      <LibraryBigIcon size={26} />
+                    </div>
+                    <p className="font-bold ml-4">My books</p>
+                  </div>
+                  <div className="bg-gray-300 m-2 p-2 rounded-full font-bold">
+                    <p className="px-2">{userBooks.length ?? 0}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 border bg-white rounded-xl mb-2 w-full justify-between">
+                  <div className="flex items-center">
+                    <div
+                      className="text-white rounded-xl ml-2"
+                      style={{
+                        background:
+                          "linear-gradient(to bottom right, #b3d1ff, #3399ff, #0066ff)",
+                        padding: "10px",
+                      }}
+                    >
+                      <BookOpenCheck size={25} />
+                    </div>
+                    <p className="font-bold ml-4">Books read</p>
+                  </div>
+                  <div className="bg-gray-300 m-2 p-2 rounded-full font-bold">
+                    <p className="px-2">
+                      {userDashboardData?.userInfo?.readBooks?.length ?? 0}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 border bg-white rounded-xl mb-2 w-full justify-between">
+                  <div className="flex items-center">
+                    <div
+                      className="text-white rounded-xl ml-2"
+                      style={{
+                        background:
+                          "linear-gradient(to bottom right, #b3d1ff, #3399ff, #0066ff)",
+                        padding: "10px",
+                      }}
+                    >
+                      <BookHeart size={25} />
+                    </div>
+                    <p className="font-bold ml-4">Books liked</p>
+                  </div>
+                  <div className="bg-gray-300 m-2 p-2 rounded-full font-bold">
+                    <p className="px-2">
+                      {userDashboardData?.userInfo?.likedBooks?.length ?? 0}
+                    </p>
+                  </div>
+                </div>
+                <Link href="/dashboard/createbook" passHref>
+                  <Button className=" bg-black text-white border-1 m-2 mt-10 lg:mr-4 rounded-full py-0 hover:bg-white hover:text-black">
+                    + Create New Book
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="bg-blue-100 shadow-xl w-full lg:w-full grid grid-rows-5 rounded-xl mb-6 lg:mb-2 grid-flow-row-dense">
           <h1 className="text-2xl font-bold m-4 ">Your Books</h1>

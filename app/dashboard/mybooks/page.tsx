@@ -10,6 +10,7 @@ import { useToast } from "@/components/ui/use-toast";
 import BookLike from "../_components/BookLike";
 import { Loader2Icon } from "lucide-react";
 import { fetchUserDashboard } from "../../api/api";
+import { useRouter } from "next/navigation";
 
 interface Book {
   id: number;
@@ -32,6 +33,7 @@ function MyBooks() {
   const { token, decodedJwt: decodedToken } = useDecodedToken();
   const [isLoadingBook, setIsLoadingBook] = useState(false);
   const { toast } = useToast();
+  const router = useRouter();
 
   const isBrowser = typeof window !== "undefined";
 
@@ -54,6 +56,11 @@ function MyBooks() {
   };
 
   useEffect(() => {
+    if (!decodedToken || decodedToken.id === null) {
+      router.push("/login");
+      return;
+    }
+
     fetchBooksUser();
     fetchUserDashboardData();
 
@@ -86,7 +93,7 @@ function MyBooks() {
         socket.disconnect();
       };
     }
-  }, [decodedToken.id]);
+  }, [decodedToken, router]);
 
   const userBookElements = userBooks?.map((book) => {
     const firstContentMatch = book?.text?.match(/<content>([\s\S]*?)<\/content>/);

@@ -79,6 +79,11 @@ function Account({ }: { params: { id: string } }) {
     }
   }
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    router.push("/login");
+  };
+
   return (
     <div className="flex items-center justify-center">
       <div className="flex flex-col mt-5 lg:mt-20 w-full h-[80vh] lg:w-[50vw] border rounded-xl shadow-xl bg-gradient-to-br from-blue-200 via-blue-300 to-blue-200">
@@ -130,11 +135,12 @@ function Account({ }: { params: { id: string } }) {
           >
             Save changes
           </Button>
-          <Link href="/">
-            <Button className="mt-10 mb-6 w-[15vw] bg-red-400 hover:bg-white hover:text-red-400">
-              Logout
-            </Button>
-          </Link>
+          <Button
+            onClick={handleLogout}
+            className="mt-10 mb-6 w-[15vw] bg-red-400 hover:bg-white hover:text-red-400"
+          >
+            Logout
+          </Button>
         </div>
       </div>
     </div>

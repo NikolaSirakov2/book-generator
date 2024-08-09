@@ -1,5 +1,6 @@
 'use client';
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import NavBar from "./_components/Navbar";
 import SideBar from "./_components/Sidebar";
 
@@ -8,6 +9,15 @@ interface DashboardLayoutProps {
 }
 
 function DashboardLayout({ children }: DashboardLayoutProps) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/login");
+    }
+  }, [router]);
+
   return (
     <div className="">
       <div className="">
@@ -18,7 +28,7 @@ function DashboardLayout({ children }: DashboardLayoutProps) {
           <SideBar />
         </div>
         <div className="w-[90vw] m-4 lg:mt-0 lg:ml-40 ">
-        {children}
+          {children}
         </div>
       </div>
     </div>
