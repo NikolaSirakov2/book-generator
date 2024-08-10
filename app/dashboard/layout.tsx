@@ -1,8 +1,9 @@
 'use client';
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import NavBar from "./_components/Navbar";
 import SideBar from "./_components/Sidebar";
+import { isTokenValid } from './_components/TokenValidation';
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -10,13 +11,19 @@ interface DashboardLayoutProps {
 
 function DashboardLayout({ children }: DashboardLayoutProps) {
   const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
+    if (!isTokenValid()) {
       router.push("/login");
+    } else {
+      setIsAuthenticated(true);
     }
   }, [router]);
+
+  if (!isAuthenticated) {
+    return null; 
+  }
 
   return (
     <div className="">

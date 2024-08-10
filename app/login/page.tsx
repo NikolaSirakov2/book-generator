@@ -34,9 +34,9 @@ function Login() {
 
       try {
         const token = await loginUser(email, password);
-        console.log('Success:', token);
-
+        const timestamp = new Date().getTime();
         localStorage.setItem('token', token);
+        localStorage.setItem('tokenTimestamp', timestamp.toString());
 
         router.push('/dashboard');
       } catch (error) {
