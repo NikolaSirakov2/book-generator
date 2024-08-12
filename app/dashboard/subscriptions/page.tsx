@@ -30,7 +30,7 @@ function PricingPlans() {
               </p>
 
               <a
-                className="mt-4 block rounded-xl border bg-cream-500 shadow-xl px-12 py-3 text-center text-lg font-medium hover:bg-transparent text-black focus:outline-none focus:ring sm:mt-6"
+                className="mt-4 block rounded-xl border bg-cream-300 shadow-xl px-12 py-3 text-center text-lg font-medium hover:bg-transparent text-black focus:outline-none focus:ring sm:mt-6"
                 href={"/dashboard"}
               >
                 Get Started
@@ -125,7 +125,7 @@ function PricingPlans() {
               </p>
 
               <a
-                className="mt-4 block rounded-xl border bg-cream-500 shadow-xl px-12 py-3 text-center text-lg font-medium hover:bg-transparent text-black focus:outline-none focus:ring sm:mt-6"
+                className="mt-4 block rounded-xl border bg-cream-300 shadow-xl px-12 py-3 text-center text-lg font-medium hover:bg-transparent text-black focus:outline-none focus:ring sm:mt-6"
                 href={"/dashboard"}
               >
                 Get Started
@@ -242,7 +242,7 @@ function PricingPlans() {
               </p>
 
               <a
-                className="mt-4 block rounded-xl border bg-cream-500 shadow-xl px-12 py-3 text-center text-lg font-medium hover:bg-transparent text-black focus:outline-none focus:ring sm:mt-6"
+                className="mt-4 block rounded-xl border bg-cream-300 shadow-xl px-12 py-3 text-center text-lg font-medium hover:bg-transparent text-black focus:outline-none focus:ring sm:mt-6"
                 href={"/dashboard"}
               >
                 Get Started

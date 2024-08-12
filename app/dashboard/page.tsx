@@ -92,7 +92,7 @@ function Dashboard() {
     return (
       <div
         key={book.id}
-        className="bg-cream-400 items-center justify-between border-1 rounded-xl p-4 mr-10 max-w-[90vw] lg:max-w-[30vw] min-h-[40vh] shadow-xl"
+        className="bg-cream-300 items-center justify-between border-1 rounded-xl p-4 mr-10 max-w-[90vw] lg:max-w-[30vw] min-h-[40vh] shadow-xl"
       >
         <Image
           src={book.images[0]}
@@ -120,7 +120,7 @@ function Dashboard() {
   return (
     <div className="flex flex-col lg:gap-4 lg:h-[92vh] lg:max-w-[89vw]">
       <div className="flex flex-col lg:flex-row lg:space-x-4 lg:max-h-[45vh]">
-        <div className="bg-cream-400 shadow-xl w-full lg:w-full rounded-xl mb-6 lg:mb-2 flex flex-col items-center">
+        <div className="bg-cream-300 shadow-xl w-full lg:w-full rounded-xl mb-6 lg:mb-2 flex flex-col items-center">
           <h1 className="text-3xl font-bold mx-4 mt-4 lg:m-4 text-center">
             Welcome back {userDashboardData?.userInfo?.firstName}!
           </h1>
@@ -205,7 +205,7 @@ function Dashboard() {
             </div>
           </div>
         </div>
-        <div className="bg-cream-400 shadow-xl w-full lg:w-full grid grid-rows-5 rounded-xl mb-6 lg:mb-2 grid-flow-row-dense">
+        <div className="bg-cream-300 shadow-xl w-full lg:w-full grid grid-rows-5 rounded-xl mb-6 lg:mb-2 grid-flow-row-dense">
           <h1 className="text-2xl font-bold m-4 ">Your Books</h1>
           {userBookElements}
           <div className="flex items-center justify-center row-start-5">

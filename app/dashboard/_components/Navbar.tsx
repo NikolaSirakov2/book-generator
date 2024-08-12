@@ -29,8 +29,14 @@ function NavBar() {
 
   return (
     <div className="flex flex-col justify-between p-0 lg:ml-40">
-      <div className="lg:hidden flex justify-between items-center bg-cream-400">
-        <Image src="/wizard-logo.jpg" alt="logo" width={70} height={30} className="rounded-xl"/>
+      <div className="lg:hidden flex justify-between items-center bg-cream-300">
+        <Image
+          src="/wizard-logo.jpg"
+          alt="logo"
+          width={70}
+          height={30}
+          className="rounded-xl"
+        />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="mr-2 my-2">

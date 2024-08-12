@@ -30,7 +30,7 @@ export default function Home() {
           </div>
           <div className="flex justify-center mt-6">
             <Link
-              href="/signup"
+              href="/login"
               className="bg-gradient-to-br from-red-400 via-blue-500 to-red-400 text-white font-bold m-4 py-2 px-6 lg:text-xl lg:px-10 rounded-full hover:bg-blue-700 transition duration-150 ease-in-out hover:text-black"
             >
               Start Now
