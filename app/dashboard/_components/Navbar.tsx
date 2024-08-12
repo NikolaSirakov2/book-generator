@@ -18,7 +18,6 @@ import {
   LibraryBig,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
-import BreadcrumbComponent from "./Breadcrumb";
 import useDecodedToken from "./useDecodedToken";
 
 function NavBar() {
@@ -125,7 +124,6 @@ function NavBar() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <BreadcrumbComponent />
     </div>
   );
 }
